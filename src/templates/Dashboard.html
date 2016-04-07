@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<!--<script type="text/javascript" src = "Scipts/Dashboard.js"></script>-->
+	<link rel="stylesheet" type="text/css" href="{% static 'Css/Dashboard.css' %}"></link>
+	<script src="{% static 'Scripts/jquery-2.2.1.min.js' %}"></script>
+	<script type = "text/javascript">
+		alert('hello');
+		if(!{{name}})
+			window.location.href("login");
+	</script>
+</head>
+
+<body>
+<p>Hello</p>
+<div class = "wrapper">
+	<div id = "sideBar">
+		<div id = "Picture"></div>
+		<h1 id = "User"></h1>
+	</div>
+
+	<div id = "actionSide">
+
+	</div>
+</div>
+
+</body>
+</html>
