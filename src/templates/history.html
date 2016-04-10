@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'Css/history.css' %}">
+</head>
+<body>
+	<div class = "wrapper">
+		<div class = "home" onclick = "location.href = 'dashboard?'+'user='+localStorage.getItem('user')">
+			<p>Home</p>
+		</div>
+		<div>
+			<br>
+			<p id = "hdu">HISTORY</p>
+			<p id = "hdl">History of all tickets booked</p>
+		</div>
+		<br>
+		<div id = "tablecontainer">
+			<table  id = "historytable">
+
+				<tr>
+					<th>PNR</th>
+					<th>Train ID</th>
+					<th>Distance</th>
+					<th>Date of Journey</th>
+					<th>From</th>
+					<th>To</th>
+					<th>Cancel ticket</th>
+				</tr>
+
+				<tr>
+					{% for rows in entries %}
+						{% for item in rows %}
+					<td>
+						{{item}}
+					</td>
+					{% endfor %}
+					<td>
+						haha
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>

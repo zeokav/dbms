@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'Css/traininfo.css' %}">
+</head>
+<body>
+	<div class = "wrapper">
+		<div class = "home" onclick = "location.href = 'dashboard?'+'user='+localStorage.getItem('user')">
+			<p>Home</p>
+		</div>
+		<div id = "hd">
+			<br>
+			<span>Trains between stations</span>
+		</div>
+
+		<section class="main">
+	 <form class="search" method="post" action="index.html" >
+		 <input type="text" name="q" placeholder="Search..." />
+		 <ul class="results" >
+			<li><a href="index.html">Search Result #1<br />
+			<li><a href="index.html">Search Result #2<br />
+	 		<li><a href="index.html">Search Result #3<br />
+         	<li><a href="index.html">Search Result #4</a></li>
+		 </ul>
+	 </form>
+</section>
+	</div>
+</body>
+
+</html>

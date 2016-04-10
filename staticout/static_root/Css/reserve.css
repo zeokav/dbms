@@ -42,58 +42,32 @@ body :-ms-input-placeholder {
     left: 0;
     top: 0;
     width: 100%;
-  	height: 675px;
-  	position: absolute;
+    height: 675px;
+    position: absolute;
     overflow: hidden;
     background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
     background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
 }
 
-.hd
-{
-  margin-top: 20px;
+.home{
   text-align: center;
-}
-
-#uhd
-{
-  font-size: 40px;
-}
-
-#lhd
-{
   font-size: 20px;
-  margin-bottom:60px;
+  border-radius: 3px;
+  width: 60px;
+  color: white;
+  -webkit-transition: background-color 0.75s;
+  -webkit-transition: color 0.75s;
 }
 
-#l1, #l2, #l3
-{
-  padding: 20px;
-  position: center;
-  text-align: center;
-  border: 1px solid #fff;
-  margin:30px;
-  margin-left: 40%;
-  margin-right: 40%;
-  border-radius: 6px;
-  color:white;
-  -webkit-transition: background-color 0.5s;
-  -webkit-transition: color 0.5s;
-}
-
-#l1:hover, #l2:hover, #l3:hover
+.home:hover
 {
   cursor: pointer;
   background-color: white;
   color: #50a3a2;
 }
 
-#logout
+#hd
 {
-  font-size: 15px;
-}
-
-#logout:hover
-{
-  cursor: pointer;
+  text-align: center;
+  font-size: 40px;
 }

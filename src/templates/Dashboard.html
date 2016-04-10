@@ -6,23 +6,29 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'Css/Dashboard.css' %}"></link>
 	<script src="{% static 'Scripts/jquery-2.2.1.min.js' %}"></script>
 	<script type = "text/javascript">
-		alert('hello');
-		if(!{{name}})
-			window.location.href("login");
+		localStorage.setItem("user", "{{name}}");
 	</script>
 </head>
 
 <body>
-<p>Hello</p>
 <div class = "wrapper">
-	<div id = "sideBar">
-		<div id = "Picture"></div>
-		<h1 id = "User"></h1>
+	<p class = "hd" id = "uhd">Hello, {{name}}! <span id = "logout" onclick = "location.href = 'login'">(Not you?)</span></p>
+	<p class = "hd" id = "lhd">What would you like to do today?</p>
+
+	<div id = "links">
+		<div id = "l1" onclick = "location.href = 'history?'+'user='+localStorage.getItem('user')"> 
+			<span>Check booking history</span>
+		</div>
+		<div id = "l2" onclick = "location.href = 'traininfo?'+'user='+localStorage.getItem('user')"> 
+			<p>Trains between stations</p>
+		</div>
+		<div id = "l3" onclick = "location.href = 'reserve?'+'user='+localStorage.getItem('user')">
+			<p>Book tickets</p>
+		</div>
+
+
 	</div>
 
-	<div id = "actionSide">
-
-	</div>
 </div>
 
 </body>

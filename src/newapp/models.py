@@ -82,6 +82,15 @@ class AuthUserUserPermissions(models.Model):
         unique_together = (('user', 'permission'),)
 
 
+class BookingHistory(models.Model):
+    person = models.ForeignKey('Person', models.DO_NOTHING, blank=True, null=True)
+    pnr = models.IntegerField(primary_key=True)
+
+    class Meta:
+        managed = False
+        db_table = 'booking_history'
+
+
 class DjangoAdminLog(models.Model):
     id = models.IntegerField(primary_key=True)  # AutoField?
     action_time = models.DateTimeField()
@@ -129,26 +138,73 @@ class DjangoSession(models.Model):
         db_table = 'django_session'
 
 
-class Lel(models.Model):
-    id = models.BigIntegerField(primary_key=True)
-    name = models.CharField(max_length=20, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'lel'
-
-
 class Person(models.Model):
     person_id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=20)
     mob_no = models.IntegerField(blank=True, null=True)
-    email = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=30, blank=True, null=True)
     gender = models.CharField(max_length=1, blank=True, null=True)
     password = models.CharField(max_length=30, blank=True, null=True)
 
-    def __unicode__(self):
-        return self.name
-
-    class Meta: 
+    class Meta:
         managed = False
         db_table = 'person'
+
+
+class Platform(models.Model):
+    platform_id = models.IntegerField(primary_key=True)
+    platform_name = models.CharField(max_length=50)
+    xcoord = models.IntegerField()
+    ycoord = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'platform'
+
+
+class Pricing(models.Model):
+    base_fare = models.FloatField(blank=True, null=True)
+    cost_per_km = models.FloatField(blank=True, null=True)
+    train = models.ForeignKey('Train', models.DO_NOTHING, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'pricing'
+
+
+class Tickets(models.Model):
+    pnr = models.IntegerField(primary_key=True)
+    train = models.ForeignKey('Train', models.DO_NOTHING, blank=True, null=True)
+    no_of_platforms = models.IntegerField(blank=True, null=True)
+    journey_distance = models.FloatField(blank=True, null=True)
+    date_of_journey = models.DateField(blank=True, null=True)
+    startplatform_id = models.IntegerField(blank=True, null=True)
+    endplatform_id = models.IntegerField(blank=True, null=True)
+    person = models.ForeignKey(Person, models.DO_NOTHING, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'tickets'
+
+
+class Train(models.Model):
+    train_name = models.CharField(max_length=30)
+    train_id = models.IntegerField(primary_key=True)
+    capacity = models.IntegerField(blank=True, null=True)
+    startp_id = models.IntegerField(blank=True, null=True)
+    endp_id = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'train'
+
+
+class Visits(models.Model):
+    train = models.ForeignKey(Train, models.DO_NOTHING, blank=True, null=True)
+    platform = models.ForeignKey(Platform, models.DO_NOTHING, blank=True, null=True)
+    departure_time = models.CharField(max_length=8)
+    arrival_time = models.CharField(max_length=8)
+
+    class Meta:
+        managed = False
+        db_table = 'visits'

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'Css/reservation.css' %}">
+</head>
+<body>
+	<div class = "wrapper">
+		<div class = "home">
+			<p  onclick = "location.href = 'dashboard?'+'user='+localStorage.getItem('user')">Home</p>
+		</div>
+		<div id = "hd">
+			<br>
+			<span>Reservation</span>
+		</div>
+
+		<br>
+		<form class = "form" method = 'POST' action = ''>{% csrf_token %}
+			<input type="text" placeholder="From" name="from">
+			<input type="text" placeholder="To" name="to">
+			<input type="text" placeholder="Date of Journey" name="date" onmouseover="(this.type='date')" onmouseout="(this.type='text')">
+			<input type="submit" value="Search for trains">
+		</form>
+	</div>
+</body>
+
+</html>

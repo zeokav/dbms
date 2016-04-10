@@ -3,7 +3,12 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="{% static 'Css/signup.css' %}">
-	
+	<script type="text/javascript">
+		val = {{exists}};
+		alert(val);
+		if({{exists}} == 1)
+			alert('User already exists in database!');
+	</script>
 </head>
 <body>
 

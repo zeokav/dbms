@@ -44,36 +44,58 @@ body :-ms-input-placeholder {
     width: 100%;
   	height: 675px;
   	position: absolute;
-  	/*margin-top: -200px;
-  	overflow: hidden;
-	background: #50a3a2;
-	*/
     overflow: hidden;
+    /*
     background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
-    background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+    background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);*/
+    background: #2c3338;
 }
 
-#Picture
+.hd
 {
-    background: white;
-    height: 150px;
-    width: 150px;
-    margin-left: 25%;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    border: 2px solid #FFFFFF;
-    border-radius: 75px;
+  margin-top: 20px;
+  text-align: center;
 }
 
-#sideBar
+#uhd
 {
-    width: 25%;
-    padding: 10px;
-    border-right: 2px solid #FFFFFF;
-    height: 667px;
+  font-size: 40px;
 }
 
-#User
+#lhd
 {
+  font-size: 20px;
+  margin-bottom:60px;
+}
 
+#l1, #l2, #l3
+{
+  padding: 20px;
+  position: center;
+  text-align: center;
+  border: 1px solid #fff;
+  margin:30px;
+  margin-left: 40%;
+  margin-right: 40%;
+  border-radius: 6px;
+  color:white;
+  -webkit-transition: background-color 0.5s;
+  -webkit-transition: color 0.5s;
+}
+
+#l1:hover, #l2:hover, #l3:hover
+{
+  cursor: pointer;
+  background-color: white;
+  color: #2c3338;
+}
+
+#logout
+{
+  font-size: 15px;
+}
+
+#logout:hover
+{
+  cursor: pointer;
 }
