@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'Css/cancelled.css' %}">
+</head>
+<body>
+	<div class = "wrapper">
+
+		<div class = "header">
+			<div class = "home" id = "gohome" onclick = "location.href = 'dashboard?'+'user='+localStorage.getItem('user')">
+				<span>Home</span>
+			</div>
+			<div class = "home" id = "logout">
+				<span>Logout</span>
+			</div>
+		</div>		
+		<div>
+			<br>
+			<p id = "hdu">Ticket Booking Cancelled!</p>
+			<p id = "hdl">Head back home.</p>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+/*@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);*/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,33 +6,7 @@
   font-weight: 300;
 }
 body {
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
-  font-weight: 300;
-}
-body ::-webkit-input-placeholder {
-  /* WebKit browsers */
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
-  font-weight: 300;
-}
-body :-moz-placeholder {
-  /* Mozilla Firefox 4 to 18 */
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
-  opacity: 1;
-  font-weight: 300;
-}
-body ::-moz-placeholder {
-  /* Mozilla Firefox 19+ */
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
-  opacity: 1;
-  font-weight: 300;
-}
-body :-ms-input-placeholder {
-  /* Internet Explorer 10+ */
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro Light";
   color: white;
   font-weight: 300;
 }
@@ -45,10 +19,7 @@ body :-ms-input-placeholder {
   	height: 675px;
   	position: absolute;
     overflow: hidden;
-    /*
-    background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
-    background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);*/
-    background: #2c3338;
+    background: #1d2120;
 }
 
 .hd
@@ -67,6 +38,7 @@ body :-ms-input-placeholder {
   font-size: 20px;
   margin-bottom:60px;
 }
+
 
 #l1, #l2, #l3
 {
@@ -93,6 +65,7 @@ body :-ms-input-placeholder {
 #logout
 {
   font-size: 15px;
+  color: #bb2a62;
 }
 
 #logout:hover

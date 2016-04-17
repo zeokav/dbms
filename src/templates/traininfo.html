@@ -6,25 +6,44 @@
 </head>
 <body>
 	<div class = "wrapper">
-		<div class = "home" onclick = "location.href = 'dashboard?'+'user='+localStorage.getItem('user')">
-			<p>Home</p>
-		</div>
+	<div class = "header">
+			<div class = "home" id = "gohome" onclick = "location.href = 'dashboard?'+'user='+localStorage.getItem('user')">
+				<span>Home</span>
+			</div>
+			<div class = "home" id = "logout">
+				<span>Logout</span>
+			</div>
+		</div>	
 		<div id = "hd">
 			<br>
 			<span>Trains between stations</span>
 		</div>
 
-		<section class="main">
-	 <form class="search" method="post" action="index.html" >
-		 <input type="text" name="q" placeholder="Search..." />
-		 <ul class="results" >
-			<li><a href="index.html">Search Result #1<br />
-			<li><a href="index.html">Search Result #2<br />
-	 		<li><a href="index.html">Search Result #3<br />
-         	<li><a href="index.html">Search Result #4</a></li>
-		 </ul>
-	 </form>
-</section>
+	 <form class="search" method="POST" action=''>
+	 	{% csrf_token %}
+	 	<select name = "stationfrom" class = "searchbox1">
+			<ul>
+		 		{% for item in station_list %}
+					<option>
+						{{ item }}
+					</option>
+				{% endfor %}
+			</ul>
+		</select>
+
+		<select name = "stationto" class = "searchbox2">
+			<ul>
+		 		{% for item in station_list %}
+					<option>
+						{{ item }}
+					</option>
+				{% endfor %}
+			</ul>
+		</select>
+		<br />
+		<input type = "submit" value = "Find Trains" id = "sub_button">
+	</form>
+
 	</div>
 </body>
 

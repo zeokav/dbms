@@ -15,8 +15,8 @@
 		<h1 id = "check">Welcome to Sky Rails!</h1>
 
 		<form class="form" method='POST' action=''> {% csrf_token %}
-			<input type="text" placeholder="Username" name="un" readonly onfocus = "this.removeAttribute('readonly');">
-			<input type="password" placeholder="Password" name= "pass">
+			<input type="text" placeholder="Username" name="un" readonly onfocus = "this.removeAttribute('readonly');" required="true">
+			<input type="password" placeholder="Password" name= "pass" required="true">
 			<input type = 'submit' value = 'Log in'> 
 		</form>
 		<p id = "signup">(Or sign up <a href = "signup" id="signuplink">here</a>)</p>

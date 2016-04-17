@@ -38,7 +38,7 @@ body :-ms-input-placeholder {
   background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
   background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
   */
-  background: #2c3338;
+  background: #1d2120;
   position: absolute;
   top: 29%;
   left: 0;
@@ -46,10 +46,6 @@ body :-ms-input-placeholder {
   height: 675px;
   margin-top: -200px;
   overflow: hidden;
-}
-.wrapper.form-success .container h1 {
-  -webkit-transform: translateY(85px);
-          transform: translateY(85px);
 }
 .container {
   max-width: 600px;
@@ -62,10 +58,12 @@ body :-ms-input-placeholder {
   font-size: 40px;
   -webkit-transition-duration: 1s;
           transition-duration: 1s;
-  -webkit-transition-timing-function: ease-in-put;
-          transition-timing-function: ease-in-put;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
   font-weight: 200;
 }
+
+
 form {
   padding: 20px 0;
   position: relative;
@@ -86,8 +84,8 @@ form input {
   text-align: center;
   font-size: 18px;
   color: white;
-  -webkit-transition-duration: 0.25s;
-          transition-duration: 0.25s;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
   font-weight: 300;
 }
 form input:hover {

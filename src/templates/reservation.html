@@ -3,25 +3,85 @@
 <html>
 <head>
 	<link rel = "stylesheet" type = "text/css" href = "{% static 'Css/reservation.css' %}">
+	<script type="text/javascript">
+		var noscene = {{ notrain }};
+		if (noscene == 1){
+			alert('There are no trains between the stations!');
+		}
+
+		function setdate(){
+
+			var today = new Date();
+			var dd = today.getDate();
+			var mm = today.getMonth()+1;
+			var yyyy = today.getFullYear();
+
+			if(dd<10){
+				dd = '0' + dd;
+			}
+			if(mm<10){
+				mm = '0' + mm;
+			}
+
+			var mindate = yyyy+'-'+mm+'-'+dd;
+			return mindate;			
+
+		}
+		
+	</script>
 </head>
 <body>
 	<div class = "wrapper">
-		<div class = "home">
-			<p  onclick = "location.href = 'dashboard?'+'user='+localStorage.getItem('user')">Home</p>
-		</div>
+		
+		<div class = "header">
+			<div class = "home" id = "gohome" onclick = "location.href = 'dashboard?'+'user='+localStorage.getItem('user')">
+				<span>Home</span>
+			</div>
+			<div class = "home" id = "logout">
+				<span>Logout</span>
+			</div>
+		</div>	
+
 		<div id = "hd">
 			<br>
-			<span>Reservation</span>
+			<span>Book Ticket</span>
 		</div>
-
 		<br>
-		<form class = "form" method = 'POST' action = ''>{% csrf_token %}
-			<input type="text" placeholder="From" name="from">
-			<input type="text" placeholder="To" name="to">
-			<input type="text" placeholder="Date of Journey" name="date" onmouseover="(this.type='date')" onmouseout="(this.type='text')">
-			<input type="submit" value="Search for trains">
-		</form>
+		<br>
+
+		<form class="search" method="POST" action=''>
+	 	{% csrf_token %}
+	 	<select name = "stationfrom" class = "searchbox1">
+			<ul>
+				<option disabled selected value>From...</option>
+		 		{% for item in station_list %}
+					<option>
+						{{ item }}
+					</option>
+				{% endfor %}
+			</ul>
+		</select>
+
+		<select name = "stationto" class = "searchbox2">
+			<ul>
+				<option disabled selected value>To...</option>
+		 		{% for item in station_list %}
+					<option>
+						{{ item }}
+					</option>
+				{% endfor %}
+			</ul>
+		</select>
+		<br />
+		<input type = "date" placeholder="Date of Journey" name="doj" id = "doj" required="true" onmouseenter="this.setAttribute('min', setdate());">
+		<br />
+		<input type = "number" name="NOT" required="true" placeholder="No. Of Tickets" id = "count" min="1">
+		<br />
+		<input type = "submit" value = "Find Trains" id = "sub_button">
+	</form>
 	</div>
 </body>
 
 </html>
+
+

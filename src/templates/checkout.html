@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'Css/checkout.css' %}">
+	<script type="text/javascript">
+		window.onload = function(){
+			setvalues();
+		}
+
+		function setvalues(){
+			document.getElementById("Name").innerHTML='Name: ' + localStorage.getItem('user');
+		}
+
+	</script>
+</head>
+<body>
+	<div class = "wrapper">
+
+		<div class = "header">
+			<div class = "home" id = "gohome" onclick = "location.href = 'dashboard?user='+localStorage.getItem('user')+  '&fromcheckout={{ all_values.PNR }}'">
+				<span>Home</span>
+			</div>
+			<div class = "home" id = "logout">
+				<span>Logout</span>
+			</div>
+		</div>		
+		<div>
+			<br>
+			<p id = "hdu">Ticket Summary</p>
+			<p id = "hdl">Confirm your ticket reservation!</p>
+		</div>
+		<br />
+		<br />
+		
+
+		<div id = "ticket" class="initial" >
+			<div id = "contents">
+				<p id = "Name"></p>
+				<p id = "PNR">PNR: {{ all_values.PNR }}</p>
+				<p id = "From">From: {{ all_values.from }}</p>
+				<p id = "To">To: {{ all_values.to }}</p>
+				<p id = "DOJ">Date of Journey: {{ all_values.doj }}</p>
+				<p id = "Cost">Cost: </p>
+				<p id = "TOD">Time: {{ all_values.time }} </p>
+				<p id = "Train">Train name: {{ all_values.chosen }}</p>
+				<p id = "Distance">No. of tickets: {{ all_values.ntickets }}</p>
+			</div>
+		</div>
+
+		<div id = "CancelButton" onclick="location.href = 'cancelled?PNR='+'{{ all_values.PNR }}'">
+			Cancel
+		</div>
+		<div id = "ConfirmButton" onclick="location.href = 'confirmed'">
+			Proceed
+		</div>
+	</div>
+</body>
+
+</html>

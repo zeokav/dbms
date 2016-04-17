@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'Css/booklist.css' %}">
+	<script type="text/javascript">
+		function show(inp){
+			alert(inp);
+		}
+		function setPath(id){
+			path = 'checkout?chosen=' + id + '&prevURL=' + window.location.href; 
+			return path;
+		}
+	</script>
+</head>
+<body>
+	<div class = "wrapper">
+		<div class = "header">
+			<div class = "home" id = "gohome" onclick = "location.href = 'dashboard?'+'user='+localStorage.getItem('user')">
+				<span>Home</span>
+			</div>
+			<div class = "home" id = "logout">
+				<span>Logout</span>
+			</div>
+		</div>		
+		<div>
+			<br>
+			<p id = "hdu">Choose Train</p>
+			<p id = "hdl">The following trains were found between the stations</p>
+		</div>
+		<br />
+		<br />
+		<br />
+
+		<div>
+			{% for item in trainsAvailable %}
+			<div class = "options"  id="{{ item.0 }}" value="{{ item.0 }}" onclick="location.href=setPath(id)" >
+				{{ item.0 }} 
+				<div class = "info">
+					Seats left: {{ item.1 }}
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</body>
+
+</html>

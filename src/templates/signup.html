@@ -12,30 +12,16 @@
 </head>
 <body>
 
-	<!--
-<div class = "wrapper">
-
-	<h1 id = "check">Welcome to Sky Rails!</h1>
-
-	<form method = 'POST' action = ''> {% csrf_token %}
-		{{form.as_p}}
-		<input type = 'submit' value = 'Sign Up'>
-
-	</form>
-	<p id = 'goto'>(Or log in <a href = "login" id="loginl">here</a>)</p>
-</div>
-
--->
 
 <div class="wrapper">
 	<div class="container">
 		<h1>Sign Up</h1>
 		<form class="form" method = 'POST' action = ''> {% csrf_token %}
-			<input type="text" placeholder="Username" name = "un" readonly onfocus = "this.removeAttribute('readonly');">
-			<input type="password" placeholder="Password" name = "password">
-			<input type="text" placeholder="Phone No." name = "phone">
-			<input type="text" placeholder="Email ID" name = "email">
-			<input type="text" placeholder="Gender" name = "gender" maxlength = "1">
+			<input type="text" placeholder="Username" name = "un" readonly onfocus = "this.removeAttribute('readonly');" required="true">
+			<input type="password" placeholder="Password" name = "password" required="true">
+			<input type="text" placeholder="Phone No." name = "phone" required="true">
+			<input type="email" placeholder="Email ID" name = "email" required="true">
+			<input type="text" placeholder="Gender" name = "gender" maxlength = "1" required="true">
 			<input type="submit" value="Sign Up"> 
 		</form>
 		<p id = 'goto'>(Or log in <a href = "login" id="loginl">here</a>)</p>

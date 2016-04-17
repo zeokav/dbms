@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'Css/created.css' %}">
+	<script type="text/javascript">
+
+		setTimeout(function (){
+			location.href="login?fromSignUp='true'";
+		}, 2000);
+	</script>
+</head>
+<body>
+	<div class = "wrapper">	
+		<div>
+			<br>
+			<p id = "hdu">Success!</p>
+			<p id = "hdl">We will now redirect you. Please wait.</p>
+		</div>
+		<br>
+		<div id = "animate1">
+			Redirecting...
+		</div>
+
+	</div>
+</body>
+
+</html>

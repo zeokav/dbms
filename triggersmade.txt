@@ -1,0 +1,29 @@
+create or replace trigger historysync 
+before delete on tickets
+for each row
+begin 
+	delete from booking_history where pnr = :OLD.pnr;
+end;
+/
+
+create or replace trigger userdelete
+before delete on person
+for each row
+begin
+	delete from tickets where person_id = :OLD.person_id;
+end;
+/
+
+
+create or replace trigger ticketlog
+before delete on tickets
+for each row 
+begin 
+	insert into ticket_cancel_log values(:OLD.pnr, :OLD.person_id, sysdate);
+end;
+/
+
+create table ticket_cancel_log(
+pnr number(10),
+person_id number(5),
+cancellation_date date);

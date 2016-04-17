@@ -6,12 +6,18 @@
 </head>
 <body>
 	<div class = "wrapper">
-		<div class = "home" onclick = "location.href = 'dashboard?'+'user='+localStorage.getItem('user')">
-			<p>Home</p>
-		</div>
+
+		<div class = "header">
+			<div class = "home" id = "gohome" onclick = "location.href = 'dashboard?'+'user='+localStorage.getItem('user')">
+				<span>Home</span>
+			</div>
+			<div class = "home" id = "logout">
+				<span>Logout</span>
+			</div>
+		</div>		
 		<div>
 			<br>
-			<p id = "hdu">HISTORY</p>
+			<p id = "hdu">History</p>
 			<p id = "hdl">History of all tickets booked</p>
 		</div>
 		<br>
@@ -27,7 +33,8 @@
 					<th>To</th>
 					<th>Cancel ticket</th>
 				</tr>
-
+				<tr>
+				</tr>
 				<tr>
 					{% for rows in entries %}
 						{% for item in rows %}
@@ -36,7 +43,7 @@
 					</td>
 					{% endfor %}
 					<td>
-						haha
+						<div id = "{{ rows.0 }}" class = "cancellation" onclick="location.href='cancelled?PNR='+{{ rows.0 }}">Cancel</div>
 					</td>
 				</tr>
 				{% endfor %}
