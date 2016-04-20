@@ -3,10 +3,12 @@
 <html>
 <head>
 	<link rel = "stylesheet" type = "text/css" href = "{% static 'Css/traininfo.css' %}">
+	<scriprt src="{% static 'Scripts/jquery-2.2.1.min.js' %}">
+	
 </head>
 <body>
 	<div class = "wrapper">
-	<div class = "header">
+		<div class = "header">
 			<div class = "home" id = "gohome" onclick = "location.href = 'dashboard?'+'user='+localStorage.getItem('user')">
 				<span>Home</span>
 			</div>
@@ -16,33 +18,21 @@
 		</div>	
 		<div id = "hd">
 			<br>
-			<span>Trains between stations</span>
+			<p id = "hdu">Find train information</p>
+			<p id = "hdl">Select the train id.<br /></p>
 		</div>
-
-	 <form class="search" method="POST" action=''>
-	 	{% csrf_token %}
-	 	<select name = "stationfrom" class = "searchbox1">
-			<ul>
-		 		{% for item in station_list %}
-					<option>
-						{{ item }}
-					</option>
-				{% endfor %}
-			</ul>
-		</select>
-
-		<select name = "stationto" class = "searchbox2">
-			<ul>
-		 		{% for item in station_list %}
-					<option>
-						{{ item }}
-					</option>
-				{% endfor %}
-			</ul>
-		</select>
-		<br />
-		<input type = "submit" value = "Find Trains" id = "sub_button">
-	</form>
+		
+		<div id = "selector">
+			<form method = 'POST' action =''>{% csrf_token %}
+				<input type="text" name="traindrop" id="dropdown" list="traindata">
+					<datalist id="traindata">
+						{% for train in trains %}
+							<option label="{{ train.1 }}" value="{{ train.0 }}" class="options">	
+						{% endfor %}
+					</datalist>
+				<input type="submit" id="btn">
+			</form>
+		</div>
 
 	</div>
 </body>

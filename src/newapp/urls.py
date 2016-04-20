@@ -14,4 +14,6 @@ urlpatterns = [
 	url(r'^cancelled$', views.cancelled),
 	url(r'^confirmed$', views.confirmed),
 	url(r'^created$', views.created),
+	url(r'^red$', views.red),
+	url(r'^informationpage$', views.informationpage),
 ]

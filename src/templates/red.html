@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'Css/created.css' %}">
+	<script type="text/javascript">
+		
+		setTimeout(function (){
+			location.href="informationpage?trainid=" + {{train}};
+		}, 2000);
+	</script>
+</head>
+<body>
+	<div class = "wrapper">	
+		<div>
+			<br>
+			<p id = "hdu">Looking for information!</p>
+			<p id = "hdl">Please wait.</p>
+		</div>
+		<br>
+		<div id = "animate1">
+			Searching...
+		</div>
+
+	</div>
+</body>
+
+</html>

@@ -1,3 +1,4 @@
+1.
 create or replace trigger historysync 
 before delete on tickets
 for each row
@@ -6,6 +7,7 @@ begin
 end;
 /
 
+2.
 create or replace trigger userdelete
 before delete on person
 for each row
@@ -14,7 +16,7 @@ begin
 end;
 /
 
-
+3.
 create or replace trigger ticketlog
 before delete on tickets
 for each row 

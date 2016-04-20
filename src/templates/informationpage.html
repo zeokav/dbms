@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'Css/informationpage.css' %}">
+</head>
+<body>
+	<div class = "wrapper">
+
+		<div class = "header">
+			<div class = "home" id = "gohome" onclick = "location.href = 'dashboard?'+'user='+localStorage.getItem('user')">
+				<span>Home</span>
+			</div>
+			<div class = "home" id = "logout">
+				<span>Logout</span>
+			</div>
+		</div>		
+		<div>
+			<br>
+			<p id = "hdu">Train Information</p>
+			<p id = "hdl">Stops, timings and more.</p>
+		</div>
+		<br>
+		<div id="traininfo">
+			<p id = "name">{{ trainid }}</p>
+			<p id = "trainname">[{{ trainname }}]</p>
+			<p id = "capacity">Capacity: {{ capacity }}</p>
+			<p id = "fare">Base fare: {{ base }}</p>
+			<p id = "cost">Cost per kilometre: {{ perkm }}</p>
+			<p id = "starts">Starts at: {{ startsat }}</p>
+			<p id = "ends">Ends at: {{ endsat }}</p>
+		</div>
+
+
+		<div id = "tablecontainer">
+		<p id = "abvtbl">Schedule</p>
+
+			<table  id = "historytable">
+
+				<tr>
+					<th>Platform Name</th>
+					<th>Arrival Time </th>
+					<th>Departure Time</th>
+				</tr>
+				<tr>
+				</tr>
+				<tr>
+					{% for rows in visits %}
+						{% for item in rows %}
+					<td>
+						{{item}}
+					</td>
+					{% endfor %}
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>
